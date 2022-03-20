@@ -1,0 +1,64 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+:root {
+	
+}
+
+body {
+	font-size: 16px;
+}
+
+.super {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items:flex-start ;
+	justify-content: center;
+	flex-direction: column;
+}
+.nav {
+	height: 80px;
+	width: 100vw;
+	background: teal;
+	font-size: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.main {
+	height: calc(100vh - 80px);
+	width: 100vw;
+	background: #ccc;
+}
+.btns {
+	min-width: 300px;
+	display: flex;
+	align-items: center;
+	justify-content:space-around;
+	min-height: 300px;
+	border: 0px solid;
+}
+.btn {
+	min-height: 80px;
+	min-width: 150px;
+	font-size: 1.5rem;
+	padding: 10px 15px;
+	border-radius:6px ;
+
+}
+.watch{
+	display: none;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+}
+.urlInp {
+	font-size: 2rem;
+	min-width: 200px;
+	min-height: 80px;
+	margin: 15px;
+	text-align: center;
+}
