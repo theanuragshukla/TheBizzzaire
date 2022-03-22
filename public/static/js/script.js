@@ -5,12 +5,12 @@ const inp = document.getElementById("urlInp");
 
 
 function create(){
-	sessionStorage.setItem("streamUrl","https://google.com")
-//	web3.eth.getBlockNumber(function (error, result) {
-  //console.log(result)
-//})
+	//	sessionStorage.setItem("streamUrl","https://google.com")
+	//	web3.eth.getBlockNumber(function (error, result) {
+	//console.log(result)
+	//})
 
-//	location.href="/watch";
+	location.href="/create";
 }
 
 function triggerWatch(){

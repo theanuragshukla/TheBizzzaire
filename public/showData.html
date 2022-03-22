@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+.values{
+	min-height: 500px;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+	.val {
+		min-height: 60px;
+		min-width: min(85vw , 600px);
+		margin-top: 20px;
+		text-align: center;
+		font-size: 1.5rem;
+	}
+		</style>
+	</head>
+	<body>
+		<div id="values" class="values">
+			<input class="val" type="text" disabled value="rtmp://rtmp.livepeer.com/live/" />
+			<input class="val" id='key' type="text" disabled value="streamKey" />
+			<input class="val" id='url' type="text" disabled value="https://cdn.livepeer.com/hls/{playbackId}/index.m3u8" />
+
+
+		</div>
+<script>
+
+	window.onload=async function(){
+		var data = await sessionStorage.getItem('streamData');
+			if(data!=null){
+					data=JSON.parse(data);
+				document.getElementById('key').value=data.streamKey;
+				document.getElementById('url').value=`https://cdn.livepeer.com/hls/${data.pId}/index.m3u8`;
+				}else{
+						location.href='/';
+					}
+		}
+
+</script>
+
+	</body>
+</html>

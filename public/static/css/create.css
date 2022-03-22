@@ -1,0 +1,49 @@
+.main {
+	width: 100vw;
+	min-height: 80vh;
+}
+
+.price , .slider {
+	min-width: 600px;
+	max-width: 90vw;
+	margin: auto;
+	height: auto;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.price > div {
+	margin-top: 15px;
+	width: 90%;
+	border: 2px solid white;
+}
+
+.slider > input {
+	width: 90%;
+}
+
+.minMax {
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1rem;
+}
+
+.name {
+	height: 70px;
+	width: 81%;
+	display: block;
+	margin: auto;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.submit {
+	height: 70px;
+	width: 150px;
+	margin: 20px auto;
+	display: block;
+}

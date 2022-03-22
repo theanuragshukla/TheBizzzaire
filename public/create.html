@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="static/css/create.css">
+	</head>
+	<body>
+		<div id="main" class="main">
+
+			<div id="price" class="price">
+
+				<div id="rate" class="rate">Rate: 1000 wpm</div>
+				<div id="dur" class="dur">Stream Duration: <span id="streamDur"></span> minutes</div>
+				<div id="ttl" class="ttl">Total Cost: <span id="cost"></span> wei</div>
+			</div>
+
+
+			<div id="slider" class="slider">
+				<input id="duration" class="duration" type="range" min="10" max="90" onchange="setVal(this)">
+				<div class="minMax">
+					<span>10 mins</span>
+					<span>90 mins</span>
+				</div>
+			</div>
+
+			<input id="name" class="name" type="text" placeholder="Enter Stream Name"/>
+			<button onclick="submit()" class="submit">CREATE</button>
+		</div>
+
+		<script>
+			const RATE = 1000
+			function setVal(e){
+							document.getElementById("cost").innerHTML=RATE*e.value;
+							document.getElementById("streamDur").innerHTML=e.value;
+						}
+
+			async function submit(){
+
+							var name = document.getElementById("name").value;
+							var dur = document.getElementById("duration").value;
+							await fetch('/create',
+											{
+															method: 'POST',
+															headers: {
+																			'Content-Type': 'application/json'
+																		},
+															body: JSON.stringify({
+																			data: {
+																							name: name,
+																							dur: dur
+																						}
+																		})
+														})
+								.then(response=>response.json())
+								.then(data=>{ sessionStorage.setItem('streamData',JSON.stringify(data)); })
+
+
+							location.href="/show";
+						}
+		</script>
+	</body>
+</html>
