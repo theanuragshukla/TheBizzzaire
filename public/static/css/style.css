@@ -1,6 +1,8 @@
 *{
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Baloo Bhaijaan 2', cursive;
 }
 
 body {
@@ -27,24 +29,46 @@ body {
 .main {
 	height: calc(100vh - 80px);
 	width: 100vw;
-	background: #ccc;
+	/* background: url(../assets/1.jpg); */
+	position: relative;
+
+}
+
+.main img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
 }
 .btns {
 	min-width: 300px;
 	display: flex;
-	align-items: center;
-	justify-content:space-around;
+	align-items:flex-end;
+	justify-content:space-evenly;
 	min-height: 300px;
+	/* flex-direction: column; */
 	border: 0px solid;
 }
-.btn {
-	min-height: 80px;
-	min-width: 150px;
+.btn{
+	height: 90px;
+	width: 190px;
 	font-size: 1.5rem;
-	padding: 10px 15px;
+	padding: 10px 10px;
 	border-radius:6px ;
+	color: white;
+	border: 2px solid white;
+	/* background: linear-gradient(90deg, rgb(53, 0, 0), rgb(255, 132, 132)); */
 
 }
+.btns button:nth-child(1){
+	background: linear-gradient(90deg, rgb(185, 0, 185), rgb(6, 0, 58));
+}
+.btns button:nth-child(2){
+	background: linear-gradient(90deg,rgb(6, 0, 58),  rgb(185, 0, 185));
+}
+
 .watch{
 	display: none;
 	width: 100vw;
