@@ -11,7 +11,7 @@ async function startCapture(displayMediaOptions) {
     }
     return captureStream;
   }
-  function destroyViews(){
+function destroyViews(){
       document.getElementById("values").remove();
       document.getElementById("streamButton").remove();
       var videoele = document.createElement("video");
