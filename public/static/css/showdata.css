@@ -8,31 +8,31 @@ body{
 display: flex;
 align-items: center;
 justify-content: center;
-overflow: hidden;
+overflow:;
 background:linear-gradient(45deg, rgb(88, 88, 252), rgb(69, 255, 255));
 min-height: 100vh;
 min-width: 100vw;
 }
 
 .container{
-	width: 600px;
-	height: 500px;
+	min-width: 100vw;
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: center;
 	flex-direction: column;
 	background-color: rgba(255, 255, 255, 0.1);
 	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
 	border-radius: 20px;
-	border: 1px solid white;
+	border: 0px solid white;
 }
 .streaming .container{
 	/* position: absolute;
 	top:20px;
-	left: 20px; */
+	left: 20px; ,
 	width: 600px;
 	height:338px;
-	grid-area: video;
+	grid-area: video;*/
 }
 
 .values{
@@ -40,21 +40,25 @@ min-width: 100vw;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border: 1px solid #fff;
+	padding: 10px;
+	border-radius: 10px;
 }
 
 .val {
 		height: 60px;
 		width: 500px;
-        margin: 10px 0px;
+        margin: 10px;
 		text-align: center;
 		font-size: 1.2rem;
         background-color: rgba(255, 255, 255, 0);
         border: 1px solid white;
         color: black;
         border-radius: 10px;
+
 }
 
-#streamButton button{
+#streamButton button,button{
     font-size: 1.3rem;
     width: 140px;
     height: 80px;
@@ -83,19 +87,25 @@ min-width: 100vw;
 	border-radius: 10px;
 }
 .streamtitle{
-	display: none;
+	display:flex ;
 	grid-area: bottom;
-	background-color: red;
 	/* width: 100%;
 	height: 200px; */
 	color: white;
-    font-size: 1.5rem;
     padding: 10px 20px;
-    border: 1px solid white;
-	height: 180px;
-    background-color: rgba(255, 255, 255, 0.1);
-	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
+    border: 0px solid white;
+	height: 100px;
+	width: 100%;
+ /*   background-color: rgba(255, 255, 255, 0.1);
+	background-color: red;
+	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);*/
 	border-radius: 10px;
+	flex-wrap: wrap;,
+	flex-direction: row;
+	text-align: left;
+	align-items: center;
+	font-size: 1.2rem;
+	font-weight: 100;
 }
 
 .streaming{
@@ -107,3 +117,19 @@ min-width: 100vw;
 	gap: 10px;
     padding: 10px;
 }
+
+	.showStream{
+		width: 100%;
+		height:auto;
+		background:;
+		display:none;
+		border: 1px solid #fff;
+		margin: 10px;
+	}
+	video {
+		width: 95%;
+		margin-left: 2.5%;
+		height: auto;
+		max-width: 90vh;
+	}
+		

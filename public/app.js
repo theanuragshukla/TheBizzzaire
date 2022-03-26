@@ -4,6 +4,7 @@ const PORT =process.env.PORT || 3000
 const axios = require('axios')
 require('dotenv').config()
 
+const thread = require('child_process');
 const API_KEY = process.env.API_KEY
 
 app.use('/static',express.static(__dirname + "/static"))
@@ -43,9 +44,11 @@ app.get("/watch",(req,res)=>{
 	res.sendFile(__dirname + '/view.html')
 })
 
-app.listen(PORT,()=>{
+const server = app.listen(PORT,()=>{
 	console.log(`listening on port ${PORT}`)
 })
+
+const io = require('socket.io')(server)
 
 const requestStream= async (streamName,duration)=>{
 	var streamProfiles =  [
@@ -97,3 +100,48 @@ console.log(error)
 	}
 
 }
+
+
+io.on('connection', function(socket) {
+	console.log(socket.id + " connected")
+	
+const ffmpeg = thread.spawn('ffmpeg', [
+		"-f",
+		"lavfi",
+		"-i",
+		"anullsrc",
+		"-i",
+		"-",
+		"-c:v",
+		"libx264",
+		"-preset",
+		"veryfast",
+		"-tune",
+		"zerolatency",
+		"-c:a",
+		"aac",
+		"-f",
+		"flv", 
+		`rtmp://rtmp.livepeer.com/live/818e-h3ig-czdp-am9u`
+  ])
+
+  ffmpeg.on('close', (code, signal) => {
+    console.log('FFmpeg child process closed, code ' + code + ', signal ' + signal);
+  });
+  
+  ffmpeg.stdin.on('error', (e) => {
+    console.log('FFmpeg STDIN Error', e);
+  });
+  
+  ffmpeg.stderr.on('data', (data) => {
+    console.log('FFmpeg STDERR:', data.toString());
+  });
+	socket.on("stream", (data => {
+		ffmpeg.stdin.write(data)
+//		console.log(data);
+	}))
+	socket.on("disconnect",(socket => {
+		console.log(socket.id + " disconnected")
+	}))
+});
+

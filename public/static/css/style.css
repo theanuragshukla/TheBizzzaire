@@ -27,7 +27,7 @@
 		flex-wrap: wrap;
 		justify-content:space-evenly;
 	background-image: url(../assets/rose-petals.svg);
-	background-attachment: fixed;
+	background-attachment:;
 	background-size: cover;
 		/* border: 0px solid; */
 	}
@@ -142,7 +142,7 @@
 
 	.welcome{
 		background-image:url(../assets/subtle-prism.svg);
-		background-attachment: fixed;
+		background-attachment:;
 		background-size: cover;
 		width: 100%;
 		height: 100vh;
