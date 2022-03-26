@@ -26,8 +26,7 @@
 		align-items:center;
 		flex-wrap: wrap;
 		justify-content:space-evenly;
-		background-color: #ffff00;
-	background-image: url(/public/static/assets/rose-petals.svg);
+	background-image: url(../assets/rose-petals.svg);
 	background-attachment: fixed;
 	background-size: cover;
 		/* border: 0px solid; */
@@ -142,8 +141,7 @@
 	}
 
 	.welcome{
-		background-color: #ffffff;
-		background-image:url(/public/static/assets/subtle-prism.svg);
+		background-image:url(../assets/subtle-prism.svg);
 		background-attachment: fixed;
 		background-size: cover;
 		width: 100%;
