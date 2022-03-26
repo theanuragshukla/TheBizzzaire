@@ -3,7 +3,7 @@ const app = express()
 const PORT =process.env.PORT || 3000
 const axios = require('axios')
 require('dotenv').config()
-
+var streamKey=""
 const thread = require('child_process');
 const API_KEY = process.env.API_KEY
 
@@ -49,7 +49,12 @@ const server = app.listen(PORT,()=>{
 })
 
 const io = require('socket.io')(server)
-
+io.use(async function(socket, next) {
+  var handshakeData = socket.request;
+	streamKey=await  handshakeData._query['streamKey']
+  console.log("middleware:",streamKey);
+  next();
+});
 const requestStream= async (streamName,duration)=>{
 	var streamProfiles =  [
     {
@@ -104,7 +109,9 @@ console.log(error)
 
 io.on('connection', function(socket) {
 	console.log(socket.id + " connected")
-	
+var url = "rtmp://rtmp.livepeer.com/live/"
+var key = streamKey
+stteamKey=""
 const ffmpeg = thread.spawn('ffmpeg', [
 		"-f",
 		"lavfi",
@@ -122,7 +129,7 @@ const ffmpeg = thread.spawn('ffmpeg', [
 		"aac",
 		"-f",
 		"flv", 
-		`rtmp://rtmp.livepeer.com/live/818e-h3ig-czdp-am9u`
+		`${url}${key}`
   ])
 
   ffmpeg.on('close', (code, signal) => {
@@ -136,7 +143,7 @@ const ffmpeg = thread.spawn('ffmpeg', [
   ffmpeg.stderr.on('data', (data) => {
     console.log('FFmpeg STDERR:', data.toString());
   });
-	socket.on("stream", (data => {
+	socket.on("stream", ((data) => {
 		ffmpeg.stdin.write(data)
 //		console.log(data);
 	}))

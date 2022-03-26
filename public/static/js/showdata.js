@@ -1,15 +1,16 @@
-const socket = io.connect();
 var track = null;
 var localStream ='';
 const cameraView = document.querySelector("#camera--view");
 var constraints = { video: { facingMode: "user" }, audio: false };
 var  screen = false;
-
+let socket;
+let key;
 window.onload=async function(){
 	var data = await sessionStorage.getItem('streamData');
 	if(data!=null){
 		data=JSON.parse(data);
 		document.getElementById('key').value=data.streamKey;
+		key=data.streamKey;
 		document.getElementById('url').value=`https://cdn.livepeer.com/hls/${data.pId}/index.m3u8`;
 	}else{
 		location.href='/';
@@ -19,7 +20,7 @@ window.onload=async function(){
 
 function startStream(){
 	destroyViews();
-	//	startCapture();
+	socket = io.connect("/",{ query: `streamKey=${key}` });
 	cameraStart();
 }
 
