@@ -15,7 +15,7 @@ function create(){
 	//console.log(result)
 	//})
 
-	location.href="/create";
+	location.href="/public/create.html";
 }
 
 function triggerWatch(){
