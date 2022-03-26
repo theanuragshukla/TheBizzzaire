@@ -1,29 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>LivePeer | Live Streaming Made Easy</title>
-		<link rel="stylesheet" href="static/css/style.css">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
-	</head>
-	<body>
-		<div class="super">
-			<div id="nav" class="nav">LivePeer</div>
-			<div id="main" class="main">
-				<img src="static/assets/3.jpg" alt="">
-				<div id="btns" class="btns">
-					<button onclick="create()" class="btn create">Create Stream</button>
-					<button onclick="triggerWatch()" class="btn join">Watch Stream</button>
+
+<head>
+	<meta charset="UTF-8">
+	<title>LivePeer | Live Streaming Made Easy</title>
+	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="super">
+
+		<div class="welcome">
+			<div class="heading">Welcome to exciting world of livestream.</div>
+			<div class="wlcmtxt">Enjoy the new era of livestream with control in your hands</div>
+		</div>
+
+		<div id="btns" class="btns">
+				<div class="card1">
+					<div class="cardheading">
+						Create Stream
+					</div>
+					<div class="cardtxt">
+						Let the world know what you wish to show,
+						let world experience what they had never,
+						Go live and stream now.
+					
+					</div>
+
+					<button onclick="create()" class="btn create">
+						<span>Create Stream</span>
+						<ion-icon name="videocam-outline" class="icon"></ion-icon>
+					</button>
 				</div>
+
+
+				<div class="card2">
+					<div class="cardheading">
+						Watch Stream
+					</div>
+					<div class="cardtxt">
+						Take a look at what the world is doing,
+						 Explore rich
+						collection of livestreams now.
+					</div>
+
+					<button onclick="triggerWatch(); superHeight();" class="btn join">
+						<span>Watch Stream</span>
+						<ion-icon name="play-circle-outline" class="icon"></ion-icon>
+					</button>
+				</div>
+
 				<div id="watch" class="watch">
-					<input id="urlInp" class="urlInp" type="text" placeholder="Enter Stream Url"/>
-					<button id="watchBtn" class="watchBtn btn" onclick="watch()">Watch</button>
+						<span onclick="goBack()" class="back"><ion-icon name="arrow-back-circle-outline" style="font-size: 4rem;"></ion-icon> Go Back</span>
+						<input id="urlInp" class="urlInp" type="text" placeholder="Enter Stream Url" />
+						<button id="watchBtn" class="watchBtn btn" onclick="watch()">Watch</button>
 				</div>
 			</div>
-		</div>
-		<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
-		<script src="static/js/script.js"></script>
-	</body>
+
+	</div>
+	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
+	<script src="static/js/script.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	
+</body>
+
 </html>
