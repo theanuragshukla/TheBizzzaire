@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow: hidden;
+}
+
+.container{
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    'player player player right right'
+    'bottom bottom bottom right right'
+    /* 'bottom bottom bottom right right' */
+    ;
+    gap: 10px;
+    padding: 10px;
+    background:linear-gradient(45deg, rgb(96, 96, 255), rgb(170, 135, 235));
+}
+.player{
+    /* height: 400px; */
+    width: 100%;
+    aspect-ratio: calc(16/9);
+    grid-area: player;
+	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
+	border-radius: 10px;
+    border: 1px solid white;
+}
+.right{
+    grid-area: right;
+    background-color: rgba(255, 255, 255, 0.1);
+	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
+	border-radius: 10px;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: 1px solid white;
+}
+.bottom{
+    grid-area: bottom;
+    height: 130px;
+    background-color: rgba(255, 255, 255, 0.1);
+	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
+	border-radius: 10px;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: 1px solid white;
+}
+
+
+
