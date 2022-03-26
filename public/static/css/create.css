@@ -1,55 +1,28 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body{
-	
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-}
-
 .main {
-	position: relative;
-	width: 500px;
-	height: 500px;
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	flex-direction: column;
-	background-color: rgba(255, 255, 255, 0.1);
-	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
-	border-radius: 20px;
-	margin-top: 50px;
-	border: 1px solid white;
+	width: 100vw;
+	min-height: 80vh;
 }
 
-.price {
-	width: 100%;
-	/* margin: auto;
-	height: auto; */
+.price , .slider {
+	min-width: 600px;
+	max-width: 90vw;
+	margin: auto;
+	height: auto;
 	font-size: 1.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
-.slider{
-	width: 90%;
-} 
 
 .price > div {
 	margin-top: 15px;
 	width: 90%;
-	/* border: 1px solid white; */
-	color: rgb(22, 22, 22);
+	border: 2px solid white;
 }
 
 .slider > input {
-	width: 100%;
+	width: 90%;
 }
 
 .minMax {
@@ -61,116 +34,16 @@ overflow: hidden;
 
 .name {
 	height: 70px;
-	width: 80%;
-	/* display: block; */
-	/* margin: auto; */
-	font-size: 1.3rem;
-	text-align: center;
-	background-color: rgba(255, 255, 255, 0.15);
-	color: rgb(0, 0, 0, 0.7);
-	border: none;
-}
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	color: rgb(0, 0, 0, 0.7);
-	opacity: 1; /* Firefox */
-  }
-
-
-.bg{
-	width: 500px;
-	height: 500px;
-	position: absolute;
-	filter: blur(300px);
-	animation-name: animate;
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-
-
-.bg:nth-child(1){
-	animation-delay: 0s;
-	background-color: rgb(2, 238, 255);
-	top: -200px;
-	left: 20px;
-	animation-name: animate1;
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-.bg:nth-child(2){
-	animation-delay: 1s;
-	background-color: rgb(0, 45, 247);
-	width: 600px;
-	height: 600px;
-	top: 100px;
-	right:200px;
-	animation-name: animate2;
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-.bg:nth-child(3){
-	animation-delay: 2s;
-	background-color: rgb(255, 0, 98);
-	top: 50%;
-	left: 200px;
-	animation-name: animate3;
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-
-@keyframes animate1{
-	0%{
-		background-color: rgb(2, 238, 255);
-	}
-	50%{
-		background-color: rgb(19, 2, 255);
-	}
-	100%{
-		background-color: rgb(2, 238, 255);
-	}
-}
-@keyframes animate2{
-	0%{
-		background-color: rgb(0, 45, 247);
-	}
-	50%{
-		background-color: rgb(0, 247, 165);
-	}
-	100%{
-		background-color: rgb(0, 45, 247);
-	}
-}
-@keyframes animate3{
-	0%{
-		background-color: rgb(255, 0, 98);
-	}
-	50%{
-		background-color: rgb(140, 0, 255);
-	}
-	100%{
-		background-color: rgb(255, 0, 98);
-	}
-}
-
-.submit{
-	background-color:rgb(255, 255, 255, 0);
-	height: 80px;
-	width: 170px;
+	width: 81%;
+	display: block;
+	margin: auto;
 	font-size: 1.5rem;
-	font-weight:bolder;
-	border-radius:20px ;
-	color: rgba(0, 0, 0, 0.651);
-	border: 1px solid white;
-	display: flex;
-	align-items:center;
-	justify-content:center;
-	/* background: linear-gradient(90deg, rgb(53, 0, 0), rgb(255, 132, 132)); */
-	transition: 0.3s;
-	cursor: pointer;
+	text-align: center;
 }
-.submit:hover{
-	background-color: rgba(255, 255, 255, 0.2);
+
+.submit {
+	height: 70px;
+	width: 150px;
+	margin: 20px auto;
+	display: block;
 }
