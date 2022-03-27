@@ -67,6 +67,7 @@ function destroyViews(){
 //	document.getElementById("streamButton").remove();
 	document.getElementById("showStream").style.display = 'flex';
 	document.getElementById("streamButton").style.display = 'none';
+	document.querySelector(".streamtitle h1").innerHTML = sessionStorage.getItem("streamName");
 //	var videoele = document.createElement("video");
 //	videoele.setAttribute("src",sessionStorage.getItem("streamUrl"))
 }
