@@ -68,7 +68,7 @@ overflow: hidden;
 	text-align: center;
 	background-color: rgba(255, 255, 255, 0.15);
 	color: rgb(0, 0, 0, 0.7);
-	border: none;
+	border: 1px solid white;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: rgb(0, 0, 0, 0.7);

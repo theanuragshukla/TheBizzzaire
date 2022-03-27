@@ -32,6 +32,7 @@ function stopStream(){
 
 function screenShare(){
 	!screen ? startCapture() : cameraStart();
+	document.getElementById('switchMode').innerHTML=!screen ? "Switch to Camera" : "Share Screen";
 	screen=!screen
 }
 

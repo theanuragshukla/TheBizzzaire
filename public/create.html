@@ -12,7 +12,7 @@
 
 		<div id="main" class="main">
 
-			<div id="price" class="price">
+	<!--		<div id="price" class="price">
 
 				<div id="rate" class="rate">Rate: 1000 wpm</div>
 				<div id="dur" class="dur">Stream Duration: <span id="streamDur"></span> minutes</div>
@@ -27,6 +27,7 @@
 					<span>90 mins</span>
 				</div>
 			</div>
+	-->
 
 			<input id="name" class="name" type="text" placeholder="Enter Stream Title" />
 			<button onclick="submit()" class="submit">Create</button>
@@ -42,7 +43,9 @@
 			async function submit(){
 
 							var name = document.getElementById("name").value;
-							var dur = document.getElementById("duration").value;
+							sessionStorage.setItem('streamName',name);
+					//		var dur = document.getElementById("duration").value;
+							var dur =0;
 							await fetch('/create',
 											{
 															method: 'POST',
