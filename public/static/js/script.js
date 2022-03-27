@@ -40,12 +40,8 @@ function superHeight(){
 }
 
 function watch (){
-	if (inp.value!=null){
 		var streamUrl=inp.value;
 		sessionStorage.setItem("streamUrl",streamUrl);
 		location.href='/watch';
-	}
-	else{
-		
-	}
+
 }
