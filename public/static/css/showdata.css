@@ -121,13 +121,11 @@ min-width: 100vw;
 }
 
 	.showStream{
-		width: 100%;
+		width: auto;
 		height:auto;
 		background:;
 		display:none;
 		border: 0px solid #fff;
-		margin: 10px;
-		background: none;
 	}
 	video {
 		width: 100%;
@@ -136,6 +134,11 @@ min-width: 100vw;
 		height: auto;
 		aspect-ratio:calc(16 / 9);
 		max-width: 90vh;
+		margin: auto;
 	background: #000;
 	}
-		
+	@media only screen and (orientation:portrait){
+		.showStream{
+			width: 100%;
+		}
+	}		

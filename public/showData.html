@@ -49,17 +49,6 @@
 			container.style.justifyContent="flex-start";
 	})
 
-	window.onload=async function(){
-		var data = await sessionStorage.getItem('streamData');
-			if(data!=null){
-					data=JSON.parse(data);
-				document.getElementById('key').value=data.streamKey;
-					document.getElementById('url').value=`https://cdn.livepeer.com/hls/${data.pId}/index.m3u8?nosecret=${data.streamKey}`;
-				}else{
-						location.href='/';
-					}
-		}
-
 </script>
 
 		<script src="static/js/showdata.js"></script>
