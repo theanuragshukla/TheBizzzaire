@@ -19,11 +19,15 @@ body{
     gap: 10px;
     padding: 10px;*/
     background:linear-gradient(45deg, rgb(96, 96, 255), rgb(170, 135, 235));
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .player{
     /* height: 400px; */
-    width: 100%;
-    aspect-ratio: calc(16/9);
+    width: 80%;
+    aspect-ratio: calc(16 / 9);
   /*  grid-area: player;*/
 	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
 	border-radius: 10px;
@@ -31,17 +35,6 @@ body{
 }
 .right{
     grid-area: right;
-    background-color: rgba(255, 255, 255, 0.1);
-	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
-	border-radius: 10px;
-    color: white;
-    font-size: 1.5rem;
-    padding: 10px 20px;
-    border: 1px solid white;
-}
-.bottom{
-    grid-area: bottom;
-    height: 130px;
     background-color: rgba(255, 255, 255, 0.1);
 	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
 	border-radius: 10px;
