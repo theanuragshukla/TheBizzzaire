@@ -63,9 +63,10 @@ async function startCapture(displayMediaOptions) {
 	return captureStream;
 }
 function destroyViews(){
-	document.getElementById("values").remove();
+	// document.getElementById("values").remove();
 //	document.getElementById("streamButton").remove();
-	document.getElementById("showStream").style.display = 'block';
+	document.getElementById("showStream").style.display = 'flex';
+	document.getElementById("streamButton").style.display = 'none';
 //	var videoele = document.createElement("video");
 //	videoele.setAttribute("src",sessionStorage.getItem("streamUrl"))
 }
@@ -92,5 +93,20 @@ function cameraStart() {
 			console.error("Oops. Something is broken.", error);
 		});
 }
+
+ function copyFunction(a) {
+	/* Get the text field */
+	var copyText = document.getElementsByClassName("val")[a];
+
+	/* Select the text field */
+	copyText.select();
+	copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+	/* Copy the text inside the text field */
+	navigator.clipboard.writeText(copyText.value);
+
+	/* Alert the copied text */
+	// alert("Copied the text: " + copyText.value);
+	}
 
 
