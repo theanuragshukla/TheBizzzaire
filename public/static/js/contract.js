@@ -108,9 +108,9 @@ async function connectWallet() {
 var time=30;
 window.onload=async function(){
 	await connectWallet();
-	contract =await new web3.eth.Contract(abi,contractAddress);
+//	contract =await new web3.eth.Contract(abi,contractAddress);
 //	contract.methods.setRate(5000).send({"from":ethaddress});
 	rate=await contract.methods.rate().call().then(rate=>console.log(rate));
 //	contract.methods.owner().call().then(data=>console.log(data));
-	contract.methods.pay(time).send({"from":ethaddress,"value":web3.utils.toWei("0.5", "ether")});
+//	contract.methods.pay(time).send({"from":ethaddress,"value":web3.utils.toWei("0.5", "ether")});
 }
