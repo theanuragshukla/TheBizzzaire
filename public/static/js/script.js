@@ -1,4 +1,4 @@
-//const web3 = new Web3("https://cloudflare-eth.com")
+
 const btns = document.getElementById("btns"); 
 const welcome = document.querySelector(".welcome"); 
 const watchDiv = document.getElementById("watch"); 
@@ -7,14 +7,7 @@ const view = document.querySelector(".super");
 const card1 = document.querySelector(".card1");
 const card2 = document.querySelector(".card2");
 
-
-
 function create(){
-	//	sessionStorage.setItem("streamUrl","https://google.com")
-	//	web3.eth.getBlockNumber(function (error, result) {
-	//console.log(result)
-	//})
-
 	location.href="/create";
 }
 

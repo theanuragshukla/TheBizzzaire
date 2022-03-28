@@ -15,6 +15,11 @@ app.get("/",(req,res)=>{
 	res.sendFile(__dirname +'/index.html')
 })
 
+
+app.get("/contract",(req,res)=>{
+	res.sendFile(__dirname +'/contract.html')
+})
+
 app.get("/show",(req,res)=>{
 	res.status=200
 	res.sendFile(__dirname + '/showData.html')
