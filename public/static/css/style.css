@@ -12,7 +12,6 @@
 
 	.super {
 		height: 200vh;
-		width: 100%;
 		/* display: flex;
 		align-items:center;
 		justify-content: center;
@@ -25,6 +24,7 @@
 		display: flex;
 		align-items:center;
 		flex-wrap: wrap;
+		flex-direction: row ;
 		justify-content:space-evenly;
 	background-image: url(../assets/rose-petals.svg);
 	
@@ -34,7 +34,7 @@
 	.btn{
 		height: 80px;
 		width: 170px;
-		font-size: 1.3rem;
+		font-size: 1.3rem; 
 		font-weight: 400;
 		/* padding: 10px 10px; */
 		border-radius:8px ;
@@ -92,14 +92,15 @@
 		/* left: 40%; */
 	}
 
-	.btn span{
-		transition: 0.2s;
-	}
-
 	.btn:hover span{
 		transform: scale(0);
 		/* display: none; */
 	}
+
+	.btn span{
+		transition: 0.2s;
+	}
+
 
 	.watch{
 		display: none;
@@ -116,16 +117,16 @@
 		font-size: 2rem;
 		position: absolute;
 		top: -120px;
-		left: -250px;
+		left: 20px;
 		display: flex;
 		align-items: center;
 		cursor: pointer;
 		color: #ffffff;
 	}
 	.urlInp {
-		font-size: 2rem;
-		min-width: 200px;
-		min-height: 80px;
+		font-size: 1.3rem;
+		width: 250px;
+		height: 80px;
 		margin: 15px;
 		text-align: center;
 	}
@@ -164,7 +165,13 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
+		flex-wrap: wrap;
 	}
+	.heading span:nth-child(1){
+		letter-spacing: 10px;
+		font-size: 4.5rem;
+	}
+
 	.cardheading{
 		font-size: 3rem;
 		color: black;
@@ -186,7 +193,7 @@
 		text-align: center;
 	}
 
-	.card1{
+	.card1, .card2{
 		
 		width: 400px;
 		height: 400px;
@@ -203,33 +210,99 @@
 		/* margin-top: 50px; */
 		border: 1px solid white;
 	}
-	.card2{
-		
-		width: 400px;
-		height: 400px;
-		/* position: relative; */
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-direction: column;
-		/* display: inline-block;
-		margin: auto; */
-		background-color: rgba(255, 255, 255, 0.1);
-		box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
-		border-radius: 20px;
-		/* margin-top: 50px; */
-		border: 1px solid white;
-	}
+
 
 
 	
-/* 
-	@media only screen and (max-width: 980px)	{
+
+	
+	
+	@media only screen and (max-width: 600px) {
+		.wlcmtxt{
+			font-size: 1.5rem;
+		}
+		.heading span:nth-child(1){
+			letter-spacing: 8px;
+			font-size: 4rem;
+		}
 		.heading{
-			font-size: 48px;
+			font-size: 3.5rem;
+		}
+		.cardheading{
+			font-size: 2.5rem;
+		}
+		.cardtxt{
+			font-size: 1.1rem;
+		}
+		.btn{
+			font-size: 1.1rem;
+		}
+		.icon{
+			font-size: 2rem;
+			margin-right: 4px;
+		}
+		.card1, .card2{
+			width: 300px;
+			height: 350px;
+		}
+		#urlInp{
+			width: 300px;
+		}
+		.watch{
+			flex-direction: column;
+			
+		}
+	}
+	
+	@media only screen and (min-width: 768px) {
+		.back{
+			left: -100px;
+		}
+	}
+	
+	@media only screen and (max-width: 992px) {
+		.btns{
+			flex-direction: column;
 		}
 		.wlcmtxt{
-			font-size: 20px;
+			width: 80%;
 		}
-	} */
+	}
+
+@media only screen and (min-width: 992px) {
+	.back{
+		left: -200px;
+	}
+} 
+
+
+@media only screen and (min-width: 1200px) {
+	.card1, .card2{
+		width: 450px;
+		height: 450px;
+	}
+	.wlcmtxt{
+		font-size: 2.5rem;
+	}
+	.heading span:nth-child(1){
+		letter-spacing: 12px;
+		font-size: 5.5rem;
+	}
+	.heading{
+		font-size: 4.2rem;
+	}
+	.cardheading{
+		font-size: 3.2rem;
+	}
+	.cardtxt{
+		font-size: 1.8rem;
+	}
+	.btn{
+		font-size: 1.5rem;
+	}
+
+	.back{
+		left: -250px;
+	}
+}
 
