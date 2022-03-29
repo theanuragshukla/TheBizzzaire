@@ -3,7 +3,6 @@ pragma solidity ^0.8.0;
 
 contract CreateStream{
 	 address public owner;
-	 uint public rate;
 
 	constructor(){
 		owner = msg.sender;
@@ -12,18 +11,12 @@ contract CreateStream{
 		return address(this).balance;
 	}
 
-	function setRate(uint value) public {
-		require(msg.sender==owner);
-		rate=value;
-	}
-
     function transfer(address to, uint256 amount) public {
         require(msg.sender==owner);
         payable(to).transfer(amount);
     }
 
-	function pay(uint time) payable public{
-		uint amount = time*rate;
+	function pay(uint amount) payable public{
 		uint recieved = msg.value;
 		if(recieved < amount){
 			revert();

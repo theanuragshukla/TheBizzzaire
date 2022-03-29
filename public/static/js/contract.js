@@ -1,4 +1,5 @@
-const contractAddress = "0x2C4b34F4091b9B5Ff124053A8b48989BABaE72cd";
+const contractAddress = "0xca29077f2c687406bbab7dbaae283fa2d00f2773";
+
 const url = 'https://ropsten.infura.io/v3/efa707c6917a4632923f9084bd38e85a';
 const abi = [
 	{
@@ -33,42 +34,10 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "time",
-				"type": "uint256"
-			}
-		],
+		"inputs": [],
 		"name": "pay",
 		"outputs": [],
 		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "rate",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "setRate",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -88,7 +57,7 @@ const abi = [
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
-	}	
+	}
 ];
 var ethaddress,rate;
 async function connectWallet() {
@@ -105,12 +74,35 @@ async function connectWallet() {
 
          return true;
 }
-var time=30;
+//var time=30;
 window.onload=async function(){
-	await connectWallet();
+//	await connectWallet();
 //	contract =await new web3.eth.Contract(abi,contractAddress);
 //	contract.methods.setRate(5000).send({"from":ethaddress});
-	rate=await contract.methods.rate().call().then(rate=>console.log(rate));
+//	rate=await contract.methods.rate().call().then(rate=>console.log(rate));
 //	contract.methods.owner().call().then(data=>console.log(data));
-//	contract.methods.pay(time).send({"from":ethaddress,"value":web3.utils.toWei("0.5", "ether")});
+/*	contract.methods.pay(time).send({"from":ethaddress,"value":web3.utils.toWei("0.5", "ether")}, async function (error, transactonHash) {
+        console.log(transactonHash);
+    });*/
+}
+
+async function waitForTxToBeMined (txHash) {
+  let txReceipt
+  while (!txReceipt) {
+    try {
+      txReceipt = await web3.eth.getTransactionReceipt(txHash)
+    } catch (err) {
+      return indicateFailure(err)
+    }
+  }
+  indicateSuccess()
+}
+
+async function initiateTxn(amt){
+	await connectWallet();
+	contract =await new web3.eth.Contract(abi,contractAddress);
+	contract.methods.pay().send({"from":ethaddress,"value":web3.utils.toWei(amt, "ether")}, async function (error, transactonHash) {
+		console.log(transactonHash);
+	});
+
 }

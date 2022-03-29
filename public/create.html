@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Create Stream</title>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
 		<link rel="stylesheet" href="static/css/create.css">
 	</head>
 	<body>
@@ -14,27 +15,32 @@
 
 		<div id="main" class="main">
 
-	<!--		<div id="price" class="price">
+			<div id="price" class="price">
 
-				<div id="rate" class="rate">Rate: 1000 wpm</div>
-				<div id="dur" class="dur">Stream Duration: <span id="streamDur"></span> minutes</div>
-				<div id="ttl" class="ttl">Total Cost: <span id="cost"></span> wei</div>
+				<div id="rate" class="rate">Rate: 0.008 $/min</div>
+				<div id="dur" class="dur">Stream Duration: <span id="streamDur">30</span> minutes</div>		<div id="ttl" class="ttl">Total Cost: <span id="cost">0.24</span> USD</div>
 			</div>
 
 
 			<div id="slider" class="slider">
-				<input id="duration" class="duration" type="range" min="10" max="90" onchange="setVal(this)">
+				<input id="duration" class="duration" type="range" step="10" min="10" max="180" value="30" oninput="setVal(this)">
 				<div class="minMax">
 					<span>10 mins</span>
-					<span>90 mins</span>
+					<span>180 mins</span>
 				</div>
 			</div>
-	-->
+	
 
 			<input id="name" class="name" type="text" placeholder="Enter Stream Title" />
-			<button onclick="submit()" class="submit">Create</button>
+	<div class="btns">
+
+			<button onclick="payFirst()" class="submit">Pay Now</button>
+			<button onclick="submit()"  class="submit">Create</button>
+
+	</div>
 		</div>
 
 		<script src="static/js/create.js"></script>
+		<script src="static/js/contract.js"></script>
 	</body>
 </html>

@@ -20,6 +20,17 @@ app.get("/contract",(req,res)=>{
 	res.sendFile(__dirname +'/contract.html')
 })
 
+
+app.get("/getRate",async (req,res)=>{
+	var ethVal;
+	await axios.get("https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=ETH")
+		.then(data=>{
+			ethVal=data.data;
+		})
+	
+	res.json(ethVal);
+})
+
 app.get("/show",(req,res)=>{
 	res.status=200
 	res.sendFile(__dirname + '/showData.html')

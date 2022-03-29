@@ -55,7 +55,7 @@ overflow: hidden;
 }
 
 .minMax {
-	width: 90%;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	font-size: 1rem;
@@ -91,7 +91,7 @@ overflow: hidden;
 	background-color: rgb(2, 238, 255);
 	top: -200px;
 	left: 20px;
-	animation-name: animate1;
+/*	animation-name: animate1;*/
 	animation-duration: 5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
@@ -103,7 +103,7 @@ overflow: hidden;
 	height: 600px;
 	top: 100px;
 	right:200px;
-	animation-name: animate2;
+/*	animation-name: animate2;*/
 	animation-duration: 5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
@@ -113,7 +113,7 @@ overflow: hidden;
 	background-color: rgb(255, 0, 98);
 	top: 50%;
 	left: 200px;
-	animation-name: animate3;
+/*	animation-name: animate3;*/
 	animation-duration: 5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
@@ -153,6 +153,13 @@ overflow: hidden;
 	}
 }
 
+.btns {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap:  wrap;
+}
+
 .submit{
 	background-color:rgb(255, 255, 255, 0);
 	height: 80px;
@@ -168,6 +175,8 @@ overflow: hidden;
 	/* background: linear-gradient(90deg, rgb(53, 0, 0), rgb(255, 132, 132)); */
 	transition: 0.3s;
 	cursor: pointer;
+	margin: 10px;
+	
 }
 .submit:hover{
 	background-color: rgba(255, 255, 255, 0.2);
