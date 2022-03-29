@@ -7,7 +7,8 @@
 }
 
 body{
-	
+	background-image: url(../assets/rose-petals.svg);
+	background-size: cover;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -24,7 +25,7 @@ overflow: hidden;
 	justify-content: space-evenly;
 	flex-direction: column;
 	background-color: rgba(255, 255, 255, 0.1);
-	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
 	border-radius: 20px;
 	border: 1px solid white;
 }
@@ -66,7 +67,7 @@ overflow: hidden;
 	width: 80%;
 	/* display: block; */
 	/* margin: auto; */
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	text-align: center;
 	background-color: rgba(255, 255, 255, 0.15);
 	color: rgb(0, 0, 0, 0.7);
@@ -78,80 +79,7 @@ overflow: hidden;
   }
 
 
-.bg{
-	width: 500px;
-	height: 500px;
-	position: absolute;
-	filter: blur(300px);
-	
-}
 
-
-.bg:nth-child(1){
-	background-color: rgb(2, 238, 255);
-	top: -200px;
-	left: 20px;
-/*	animation-name: animate1;*/
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-.bg:nth-child(2){
-	
-	background-color: rgb(0, 45, 247);
-	width: 600px;
-	height: 600px;
-	top: 100px;
-	right:200px;
-/*	animation-name: animate2;*/
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-.bg:nth-child(3){
-	
-	background-color: rgb(255, 0, 98);
-	top: 50%;
-	left: 200px;
-/*	animation-name: animate3;*/
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-
-@keyframes animate1{
-	0%{
-		background-color: rgb(2, 238, 255);
-	}
-	50%{
-		background-color: rgb(19, 2, 255);
-	}
-	100%{
-		background-color: rgb(2, 238, 255);
-	}
-}
-@keyframes animate2{
-	0%{
-		background-color: rgb(0, 45, 247);
-	}
-	50%{
-		background-color: rgb(0, 247, 165);
-	}
-	100%{
-		background-color: rgb(0, 45, 247);
-	}
-}
-@keyframes animate3{
-	0%{
-		background-color: rgb(255, 0, 98);
-	}
-	50%{
-		background-color: rgb(140, 0, 255);
-	}
-	100%{
-		background-color: rgb(255, 0, 98);
-	}
-}
 
 .btns {
 	display: flex;
@@ -180,4 +108,41 @@ overflow: hidden;
 }
 .submit:hover{
 	background-color: rgba(255, 255, 255, 0.2);
+}
+@media only screen and (max-width: 600px) {
+	.name{
+		font-size: 1.1rem;
+	}
+	.main {
+		width: 350px;
+		height: 400px;
+	}
+	.submit{
+		font-size: 1.1rem;
+	}
+}
+@media only screen and (min-width: 600px){
+	.name{
+		font-size: 1.4rem;
+	}
+	.main {
+		width: 450px;
+		height: 500px;
+	}
+	.submit{
+		font-size: 1.4rem;
+	}
+}
+
+@media only screen and (min-width: 992px){
+	.name{
+		font-size: 1.8rem;
+	}
+	.main {
+		width: 550px;
+		height: 550px;
+	}
+	.submit{
+		font-size: 1.7rem;
+	}
 }
