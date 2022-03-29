@@ -109,27 +109,37 @@ overflow: hidden;
 .submit:hover{
 	background-color: rgba(255, 255, 255, 0.2);
 }
+
 @media only screen and (max-width: 600px) {
 	.name{
 		font-size: 1.1rem;
 	}
 	.main {
 		width: 350px;
-		height: 400px;
+		height: 450px;
 	}
 	.submit{
 		font-size: 1.1rem;
+		width: 120px;
+		height: 58px;
+	}
+	.price{
+		font-size: 1.1rem;
 	}
 }
+
 @media only screen and (min-width: 600px){
 	.name{
 		font-size: 1.4rem;
 	}
 	.main {
 		width: 450px;
-		height: 500px;
+		height: 550px;
 	}
 	.submit{
+		font-size: 1.4rem;
+	}
+	.price{
 		font-size: 1.4rem;
 	}
 }
@@ -140,9 +150,12 @@ overflow: hidden;
 	}
 	.main {
 		width: 550px;
-		height: 550px;
+		height: 600px;
 	}
 	.submit{
 		font-size: 1.7rem;
+	}
+	.price{
+		font-size: 1.8rem;
 	}
 }
