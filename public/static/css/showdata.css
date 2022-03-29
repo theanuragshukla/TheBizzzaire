@@ -11,8 +11,7 @@ align-items: center;
 justify-content: center;
 
 background:linear-gradient(45deg, rgb(88, 88, 252), rgb(69, 255, 255));
-min-height: 100vh;
-min-width: 100vw;
+
 }
 
 .container{
@@ -22,10 +21,8 @@ min-width: 100vw;
 	align-items: center;
 	justify-content: center;
 	flex-direction: row;
-	background-color: rgba(255, 255, 255, 0.1);
-	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
-	border-radius: 20px;
-	border: 0px solid white;
+	
+	
 }
 /* .streaming .container{
 	 position: absolute;
@@ -45,11 +42,12 @@ min-width: 100vw;
 	border: 1px solid #fff;
 	padding: 20px 40px;
 	border-radius: 10px;
-	margin: 20px;
 	height:500px;
+	box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
-.values span{
+.values>span{
 	margin: 20px 0px;
 	display: flex;
 	align-items: left;
@@ -58,12 +56,13 @@ min-width: 100vw;
 	font-size: 1.3rem;
 	
 }
-.values span div{
+.values>span div{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
 	border: 1px solid white;
+	border-radius: 10px;
 }
 
 .icon{
@@ -81,7 +80,7 @@ min-width: 100vw;
 		width: 500px;
         /* margin: 10px; */
 		text-align: center;
-		font-size: 1.1rem;
+		font-size: 1.2rem;
         background-color: rgba(255, 255, 255, 0);
         border: none;
         color: black;
@@ -190,4 +189,35 @@ min-width: 100vw;
 	justify-content: space-around;
 	width: 80%;
 	margin-top: 10px;
+}
+
+@media only screen and (max-width: 992px) {
+	.val{
+		width: 450px;
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.val{
+		width: 350px;
+		font-size: 0.9rem;
+	}
+	.values>span{
+		font-size: 1.1rem;
+	}
+	#streamButton button{
+		width: 130px;
+		height: 60px;
+		font-size: 0.9rem;
+	}
+}
+@media only screen and (max-width: 450px){
+	.values{
+		padding: 5px 10px;
+	}
+	.val{
+		width: 250px;
+		font-size: 0.9rem;
+	}
 }
