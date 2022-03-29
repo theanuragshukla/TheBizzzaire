@@ -10,20 +10,12 @@
 		font-size: 16px;
 	} */
 
-	.super {
-		height: 200vh;
-		/* display: flex;
-		align-items:center;
-		justify-content: center;
-		flex-direction: column;
-		flex-wrap: wrap; */
-		/* position: relative; */
-	}
+
 	.btns {
 		height: 100vh;
 		display: flex;
 		align-items:center;
-		flex-wrap: wrap;
+		/* flex-wrap: wrap; */
 		flex-direction: row ;
 		justify-content:space-evenly;
 	background-image: url(../assets/rose-petals.svg);
@@ -104,24 +96,24 @@
 
 	.watch{
 		display: none;
-		/* width: 100%; */
+		width: 100%;
 		justify-content: center;
-		position: absolute;
+	
 		align-items: center;
-		top: 50%;
-		transform:translateY(-50%) ;
-		height: 50vh;
+		
+		height: 100vh;
 	}
 
 	.back{
 		font-size: 2rem;
 		position: absolute;
-		top: -120px;
-		left: 20px;
+		top: 50px;
+		left: 50px;
 		display: flex;
 		align-items: center;
 		cursor: pointer;
 		color: #ffffff;
+		z-index: 2;
 	}
 	.urlInp {
 		font-size: 1.3rem;
@@ -179,7 +171,7 @@
 
 	.wlcmtxt{
 		font-size: 2rem;
-		color: rgb(175, 0, 190);
+		color: rgb(234, 0, 255);
 		/* width: auto; */
 		font-weight: 400;
 		text-align: center;
@@ -197,17 +189,16 @@
 		
 		width: 400px;
 		height: 400px;
-		/* position: relative; */
+		
 		display: flex;
 		align-items: center;
 		justify-content:space-around;
 		flex-direction: column;
-		/* display: inline-block;
-		margin: auto; */
+		
 		background-color: rgba(255, 255, 255, 0.1);
 		box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
 		border-radius: 20px;
-		/* margin-top: 50px; */
+		margin: 20px;
 		border: 1px solid white;
 	}
 
@@ -243,7 +234,7 @@
 		}
 		.card1, .card2{
 			width: 300px;
-			height: 350px;
+			height: 300px;
 		}
 		#urlInp{
 			width: 300px;
@@ -252,26 +243,120 @@
 			flex-direction: column;
 			
 		}
-	}
-	
-	@media only screen and (min-width: 768px) {
-		.back{
-			left: -100px;
-		}
-	}
-	
-	@media only screen and (max-width: 992px) {
 		.btns{
 			flex-direction: column;
-		}
-		.wlcmtxt{
-			width: 80%;
+			height: auto;
 		}
 	}
 
+	@media only screen and (min-width: 600px){
+		
+		.card1, .card2{
+			width: 300px;
+			height: 300px;
+		}
+		
+		.btns{
+			flex-direction: column;
+			height: auto;
+		}
+		.wlcmtxt{
+			width: 80%;
+			font-size: 2rem;
+		}
+		
+		.heading span:nth-child(1){
+			letter-spacing: 12px;
+			font-size: 4rem;
+		}
+		.heading{
+			font-size: 3.5rem;
+		}
+		.cardheading{
+			font-size: 2.5rem;
+		}
+		.cardtxt{
+			font-size: 1.5rem;
+		}
+		.btn{
+			font-size: 1.2rem;
+		}
+	}
+	
+	@media only screen and (min-width: 768px) {
+		
+		.card1, .card2{
+			width: 350px;
+			height: 350px;
+		}
+		
+		.btns{
+			flex-direction: column;
+			height: auto;
+		}
+		.wlcmtxt{
+			width: 80%;
+			font-size: 2.5rem;
+		}
+		
+		.heading span:nth-child(1){
+			letter-spacing: 12px;
+			font-size: 4.5rem;
+		}
+		.heading{
+			font-size: 3.5rem;
+		}
+		.cardheading{
+			font-size: 2.5rem;
+		}
+		.cardtxt{
+			font-size: 1.5rem;
+		}
+		.btn{
+			font-size: 1.2rem;
+		}
+		
+	}
+	
+	
+
 @media only screen and (min-width: 992px) {
-	.back{
-		left: -200px;
+	
+	.card1, .card2{
+		width: 400px;
+		height: 400px;
+	}
+	.btns{
+		flex-direction: row;
+		height: 100vh;
+	}
+	.wlcmtxt{
+		font-size: 2.5rem;
+	}
+	.heading span:nth-child(1){
+		letter-spacing: 12px;
+		font-size: 5.1rem;
+	}
+	.heading{
+		font-size: 3.9rem;
+	}
+	.cardheading{
+		font-size: 3rem;
+	}
+	.cardtxt{
+		font-size: 1.8rem;
+	}
+	.btn{
+		font-size: 1.5rem;
+	}
+
+	
+	.btns{
+		flex-direction: row;
+		height: 100vh;
+	}
+	.wlcmtxt{
+		width: 100%;
 	}
 } 
 
@@ -301,8 +386,13 @@
 		font-size: 1.5rem;
 	}
 
-	.back{
-		left: -250px;
+	
+	.btns{
+		flex-direction: row;
+		height: 100vh;
+	}
+	.wlcmtxt{
+		width: 100%;
 	}
 }
 
