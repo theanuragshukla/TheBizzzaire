@@ -122,7 +122,6 @@ console.log(error)
 
 }
 
-
 io.on('connection', function(socket) {
 	console.log(socket.id + " connected")
 	var url = "rtmp://rtmp.livepeer.com/live/"

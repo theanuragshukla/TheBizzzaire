@@ -1,4 +1,5 @@
 const RATE=0.008;
+const logs = document.getElementById('logs');
 var usdToEther;
 		async	function setVal(e){
 			document.getElementById("cost").innerHTML=RATE*e.value;
@@ -40,10 +41,12 @@ await	fetch("/getRate").then(data=>data.json())
 });
 }
 
-async function payFirst(){
+async function payFirst(e){
 	await setRate();
 	var timeToPay = document.getElementById("duration").value;
 	var amount = RATE*timeToPay*usdToEther;
+	e.innerHTML="Please Wait..."
+	logs.innerHTML+=`<h3>Starting Payment sequence...</h3><p>Amount: ${amount} ether</p><p>Amount in USD: ${RATE*timeToPay} USD</p><p>Stream Name: </p>`;
 //	console.log(amount);
-	initiateTxn(amount.toString());	
+	initiateTxn(amount.toString(),e);	
 }
