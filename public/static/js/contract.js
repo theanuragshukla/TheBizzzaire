@@ -1,85 +1,78 @@
 const contractAddress = "0xca29077f2c687406bbab7dbaae283fa2d00f2773";
-const expectedBlockTime = 1000; 
+const expectedBlockTime = 1000;
 const url = 'https://ropsten.infura.io/v3/efa707c6917a4632923f9084bd38e85a';
-const abi = [
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [],
-		"name": "getBalance",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "pay",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-];
-var ethaddress,rate;
+const abi = [{
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+},
+    {
+        "inputs": [],
+        "name": "getBalance",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [{
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "pay",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+        },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+        "name": "transfer",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }];
+var ethaddress, rate;
 async function connectWallet() {
-	logs.innerHTML+=`<p>Trying to connect Wallet...</p>`;
-       if (window.ethereum) {
-          window.web3 = new Web3(window.ethereum);  }
+    logs.innerHTML += `<p>Trying to connect Wallet...</p>`;
+    if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum);
+    }
 
-	logs.innerHTML+=`<p>Wallet Found</p><p>Please Connect Your Wallet by confirming the popup</p><p>Waiting for connection...</p>`;
+    logs.innerHTML += `<p>Wallet Found</p><p>Please Connect Your Wallet by confirming the popup</p><p>Waiting for connection...</p>`;
 
-          conn = await window.ethereum.enable();
+    conn = await window.ethereum.enable();
 
-        ethconnected = conn.length > 0
-        if (ethconnected) {
+    ethconnected = conn.length > 0
+    if (ethconnected) {
 
-	logs.innerHTML+=`<p>Wallet connected SuccessFully...</p>`;
-            ethaddress = conn[0]
+        logs.innerHTML += `<p>Wallet connected SuccessFully...</p>`;
+        ethaddress = conn[0]
 
-	logs.innerHTML+=`<p>Transacting using ${ethaddress}</p>`;
-        }
-         web3.eth.getAccounts().then(console.log);
+        logs.innerHTML += `<p>Transacting using ${ethaddress}</p>`;
+    }
+    web3.eth.getAccounts().then(console.log);
 
-         return true;
+    return true;
 }
 /*
 window.onload=async function(){
@@ -89,72 +82,103 @@ window.onload=async function(){
 	rate=await contract.methods.rate().call().then(rate=>console.log(rate));
 	contract.methods.owner().call().then(data=>console.log(data));
 	contract.methods.pay(time).send({"from":ethaddress,"value":web3.utils.toWei("0.5", "ether")}, async function (error, transactonHash) {
-        console.log(transactonHash);
-    });
+		console.log(transactonHash);
+	});
 }
 */
 const sleep = (milliseconds) => {
-	return new Promise(resolve => setTimeout(resolve, milliseconds))
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
-async function initiateTxn(amt,e){
+async function initiateTxn(amt, e) {
 
-	e.innerHTML="Initiating Txn...";
-	logs.innerHTML+=`<h3>Initiating Transaction</h3>`;
-	try{
-	await connectWallet();
-	
-	logs.innerHTML+=`<p>Connecting to Contract...</p>`;
-	contract =await new web3.eth.Contract(abi,contractAddress);
-	
-	logs.innerHTML+=`<p>Connected to contract Successfully...</p><p>Initiating Transaction...</p><p>Please Don't close the window until the process is finished...</p>`;
+    e.innerHTML = "Initiating Txn...";
+    logs.innerHTML += `<h3>Initiating Transaction</h3>`;
+    try {
+        await connectWallet();
 
-	logs.innerHTML+=`<p>Firing up the Payment Method...</p><p>Please confirm the payment through your wallet...</p>`;
-	contract.methods.pay().send({"from":ethaddress,"value":web3.utils.toWei(amt, "ether")}, async function (error, transactonHash) {
-		console.log(transactonHash);
-		
-	logs.innerHTML+=`<p>Transaction initiated successfully... </p><p><h4>Transaction Hash: </h4>${transactonHash}</p>`;
-		verifyTxn(transactonHash);
-	});
+        logs.innerHTML += `<p>Connecting to Contract...</p>`;
+        contract = await new web3.eth.Contract(abi, contractAddress);
 
-	}catch(err){
-		
-	e.innerHTML="RETRY"
-	}
-}
-const verifyTxn =async (txnHash) =>{
-	let txnReceipt = null;
-	var count = 1;
-	logs.innerHTML+=`<p>Waiting for transaction to be mined...</p><p>this may take a while, please keep calm and wait...</p>`;
-	try{
-		while (txnReceipt == null) {
+        logs.innerHTML += `<p>Connected to contract Successfully...</p><p>Initiating Transaction...</p><p>Please Don't close the window until the process is finished...</p>`;
 
-	logs.innerHTML+=`<p>Attempt ${count}</p>`;
-			count++;
-			txnReceipt = await web3.eth.getTransactionReceipt(txnHash);
-			await sleep(expectedBlockTime)
-		}
-	}catch(err){
-		return txnFailed(err);
+        logs.innerHTML += `<p>Firing up the Payment Method...</p><p>Please confirm the payment through your wallet...</p>`;
+        contract.methods.pay().send({
+            "from": ethaddress,
+            "value": web3.utils.toWei(amt, "ether")
+        }, async function(error, transactonHash) {
+            console.log(transactonHash);
 
-	logs.innerHTML+=`<p>Transaction Failed due to unknown reasons. Please reInitiate the payment with higher gas fees.</p>`;
-	}
-	
-	logs.innerHTML+=`<p>Congratulations, Your transaction is mined Successfully.</p>
-`;
+            logs.innerHTML += `<p>Transaction initiated successfully... </p><p><h4>Transaction Hash: </h4>${transactonHash}</p>`;
+
+            let txnReceipt = null;
+            let count = 1;
+            logs.innerHTML += `<p>Waiting for transaction to be mined...</p><p>this may take a while, please keep calm and wait...</p>`;
+            try {
+                while (txnReceipt == null) {
+
+                    logs.innerHTML += `<p>Attempt ${count}</p>`;
+                    count++;
+                    txnReceipt = await web3.eth.getTransactionReceipt(transactonHash);
+                    await sleep(expectedBlockTime)
+                }
+            } catch (err) {
+                return txnFailed(err);
+
+                logs.innerHTML += `<p>Transaction Failed due to unknown reasons. Please reInitiate the payment with higher gas fees.</p>`;
+            }
+
+            logs.innerHTML += `<p>Congratulations, Your transaction is mined Successfully.</p>
+            `;
 
 
+            console.log('success');
+            console.log(txnReceipt);
 
-	return txnSuccess(txnReceipt);
+            var name = document.getElementById("name").value;
+            sessionStorage.setItem('streamName', name);
+            var dur = 0;
+            dur = document.getElementById("duration").value;
+            await fetch('/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    data: {
+                        name: name,
+                        dur: dur,
+                        rec: txnReceipt
+                    }
+                })
+            })
+            .then(data => {
+                if (!data.ok) {
+                    throw new Error("HTTP status " + data.status);
+                }
+                return data.json()
+            })
+            .then(data => {
+                console.log(data);
+                sessionStorage.setItem('streamData', JSON.stringify(data));
+                location.href = "/show";
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
-}
+            return
 
-const txnSuccess = (txn) => {
-	console.log('success');
-	console.log(txn);
-	submit();
+
+        });
+
+    } catch (err) {
+        logs.innerHTML += `<p>some error occoured...</p><p>please retry</p>`;
+        console.log(err);
+        e.innerHTML = "RETRY"
+    }
 }
 
 const txnFailed = (error) => {
-	console.log('failed');
+    console.log('failed');
 }
