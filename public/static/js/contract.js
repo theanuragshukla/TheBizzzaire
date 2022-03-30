@@ -146,9 +146,9 @@ async function initiateTxn(amt, e) {
                 },
                 body: JSON.stringify({
                     data: {
-                        name: name,
-                        dur: dur,
-                        rec: txnReceipt
+                        "name": name,
+                        "dur": dur,
+                        "rec": txnReceipt
                     }
                 })
             })

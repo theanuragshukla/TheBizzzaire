@@ -42,16 +42,16 @@ app.get("/create",(req,res)=>{
 })
 
 app.post("/create",async (req,res)=>{
-	let name = req.body.name;
-	let dur = req.body.dur;
-	let receipt = req.body.rec;
+	var name = req.body.data.name;
+	var dur = req.body.data.dur;
+	var receipt = req.body.data.rec;
 	
-	if(!checkSpaces(name) || dur<10 || dur > 180){
+	if(!checkSpaces(name,false) || dur<10 || dur > 180){
 		res.statusCode = 500;
 		res.json({error: "Don't fool me , u wannabe hacker"});
 	}
 
-	var createStreamResponse =await requestStream(req.body.data.name,req.body.data.dur)
+	var createStreamResponse =await requestStream(name,dur)
 	if (createStreamResponse && createStreamResponse.data) {
 		res.statusCode = 200;
 		var finalData = createStreamResponse.data;
@@ -67,6 +67,27 @@ app.get("/watch",(req,res)=>{
 	res.status=200
 	res.sendFile(__dirname + '/view.html')
 })
+
+
+app.get("/all-active-streams",async (req,res)=>{
+		try {
+		await axios.get('https://livepeer.com/api/stream?streamsonly=1',
+			{
+				headers: {
+					authorization: `Bearer ${API_KEY}`,
+				},
+			})
+			.then(data=>{console.log(data)})
+			res.statusCode=200;
+			res.end("done");
+	}
+	catch (error) {
+	 
+	}
+
+
+})
+
 
 const server = app.listen(PORT,()=>{
 	console.log(`listening on port ${PORT}`)
@@ -119,13 +140,7 @@ const requestStream= async (streamName,duration)=>{
 		return createStreamResponse 
 	}
 	catch (error) {
-		/*  res.statusCode = 500;
-console.log(error)
-	  if (error.response.status === 403) {
-		res.statusCode = 403;
-	  }
-	  res.json({ error });
-	  */ 
+	 
 	}
 
 }
