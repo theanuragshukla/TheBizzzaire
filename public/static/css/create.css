@@ -12,8 +12,10 @@ body{
 display: flex;
 align-items: center;
 justify-content: center;
-min-height: 100vh;
+flex-direction: column;
 overflow: hidden;
+min-height: 100vh;
+
 }
 
 .main {
@@ -28,6 +30,7 @@ overflow: hidden;
 	box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
 	border-radius: 20px;
 	border: 1px solid white;
+	margin: 20px;
 }
 
 .price {
@@ -83,7 +86,7 @@ overflow: hidden;
 
 .btns {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
 	flex-wrap:  wrap;
 }
@@ -110,21 +113,49 @@ overflow: hidden;
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
+
+.transaction{
+	/* overflow: hidden; */
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	max-height: 550px;
+	position: relative;
+}
+
+.logs{
+	display: none;
+	font-size: 1.5rem;
+	width: 500px;
+	height: auto;
+	
+	/* overflow: hidden; */
+}
+
+
+
 @media only screen and (max-width: 600px) {
 	.name{
 		font-size: 1.1rem;
 	}
 	.main {
-		width: 350px;
-		height: 450px;
+		width: 320px;
+		height: 430px;
 	}
 	.submit{
-		font-size: 1.1rem;
+		font-size: 0.9rem;
 		width: 120px;
 		height: 58px;
 	}
 	.price{
-		font-size: 1.1rem;
+		font-size: 1rem;
+	}
+	.logs{
+		width: 300px;
+		font-size: 0.8rem;
+	}
+	.minMax{
+		font-size: 0.7rem;
 	}
 }
 
@@ -142,6 +173,10 @@ overflow: hidden;
 	.price{
 		font-size: 1.4rem;
 	}
+	.logs{
+		width: 420px;
+		font-size: 1.2rem;
+	}
 }
 
 @media only screen and (min-width: 992px){
@@ -150,7 +185,7 @@ overflow: hidden;
 	}
 	.main {
 		width: 550px;
-		height: 600px;
+		height: 570px;
 	}
 	.submit{
 		font-size: 1.7rem;
@@ -158,4 +193,23 @@ overflow: hidden;
 	.price{
 		font-size: 1.8rem;
 	}
+	.logs{
+		width: 500px;
+		font-size: 1.5rem;
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	body{
+		flex-direction: row;
+	}
+	.logs{
+		width: 500px;
+		font-size: 1.5rem;
+		position: relative;
+		bottom: 0px;
+		left:0px;
+	}
+
+	
 }

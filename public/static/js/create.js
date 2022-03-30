@@ -42,11 +42,15 @@ await	fetch("/getRate").then(data=>data.json())
 }
 
 async function payFirst(e){
+
 	var name = document.getElementById("name").value;
 	if(!checkSpaces(name,false)){
 		alert("please enter a valid name");
 		return;
 	}
+
+	logs.style.display="block";
+
 	await setRate();
 	var timeToPay = document.getElementById("duration").value;
 	var amount = RATE*timeToPay*usdToEther;
