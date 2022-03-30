@@ -133,7 +133,7 @@ async function initiateTxn(amt, e) {
 
 
             console.log('success');
-            console.log(txnReceipt);
+	            console.log(txnReceipt);
 
             var name = document.getElementById("name").value;
             sessionStorage.setItem('streamName', name);

@@ -42,7 +42,15 @@ app.get("/create",(req,res)=>{
 })
 
 app.post("/create",async (req,res)=>{
-	res.status=200
+	let name = req.body.name;
+	let dur = req.body.dur;
+	let receipt = req.body.rec;
+	
+	if(!checkSpaces(name) || dur<10 || dur > 180){
+		res.statusCode = 500;
+		res.json({error: "Don't fool me , u wannabe hacker"});
+	}
+
 	var createStreamResponse =await requestStream(req.body.data.name,req.body.data.dur)
 	if (createStreamResponse && createStreamResponse.data) {
 		res.statusCode = 200;
@@ -121,6 +129,15 @@ console.log(error)
 	}
 
 }
+
+
+
+function checkSpaces(str, exact) {
+    var len = str.replace(/\s/g, '').length
+    return (exact ? len === str.length && len !== 0: len !== 0)
+}
+
+
 
 io.on('connection', function(socket) {
 	console.log(socket.id + " connected")
