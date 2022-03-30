@@ -140,7 +140,11 @@ const verifyTxn =async (txnHash) =>{
 	logs.innerHTML+=`<p>Transaction Failed due to unknown reasons. Please reInitiate the payment with higher gas fees.</p>`;
 	}
 	
-	logs.innerHTML+=`<p>Congratulations, Your transaction is mined Successfully.</p><p>${JSON.stringify(txnReceipt)}</p>`;
+	logs.innerHTML+=`<p>Congratulations, Your transaction is mined Successfully.</p>
+`;
+
+
+
 	return txnSuccess(txnReceipt);
 
 }
@@ -148,7 +152,7 @@ const verifyTxn =async (txnHash) =>{
 const txnSuccess = (txn) => {
 	console.log('success');
 	console.log(txn);
-
+	submit();
 }
 
 const txnFailed = (error) => {

@@ -42,6 +42,11 @@ await	fetch("/getRate").then(data=>data.json())
 }
 
 async function payFirst(e){
+	var name = document.getElementById("name").value;
+	if(!checkSpaces(name,false)){
+		alert("please enter a valid name");
+		return;
+	}
 	await setRate();
 	var timeToPay = document.getElementById("duration").value;
 	var amount = RATE*timeToPay*usdToEther;
@@ -50,3 +55,13 @@ async function payFirst(e){
 //	console.log(amount);
 	initiateTxn(amount.toString(),e);	
 }
+
+
+
+function checkSpaces(str,exact) {
+	var len = str.replace(/\s/g, '').length
+	return (exact ? len===str.length && len!==0 : len!==0) 
+}
+
+
+
