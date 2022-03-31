@@ -36,3 +36,12 @@ function watch (){
 		location.href='/watch';
 
 }
+
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight) / 1.5) {
+        // you're at the bottom of the page
+		// console.log("scroll")
+		card1.classList.add("animate__fadeInLeft");
+		card2.classList.add("animate__fadeInRight");
+    }
+};

@@ -202,7 +202,9 @@ background-size: cover;
 	border: 1px solid white;
 }
 
-
+.card2{
+	animation-delay: 0.5s;
+}
 
 
 
