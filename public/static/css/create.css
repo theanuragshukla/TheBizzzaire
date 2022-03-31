@@ -13,7 +13,6 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-overflow:;
 min-height: 100vh;
 
 }
@@ -119,7 +118,7 @@ min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: end;
-	max-height: 550px;
+	max-height: 450px;
 	position: relative;
 	border: 1px solid white;
 	padding: 10px;
@@ -132,6 +131,8 @@ min-height: 100vh;
 	width: 100%;
 	text-align: center;
 	text-decoration: underline;
+	margin-bottom: 10px;
+	
 }
 .logs{
 	font-size: 1.5rem;
@@ -168,6 +169,12 @@ min-height: 100vh;
 	.minMax{
 		font-size: 0.7rem;
 	}
+	.transaction > h2 {
+		font-size: 1rem;
+	}
+	.transaction{
+		width:290px;
+	}
 }
 
 @media only screen and (min-width: 600px){
@@ -188,6 +195,12 @@ min-height: 100vh;
 		width: 420px;
 		font-size: 1.2rem;
 	}
+	.transaction > h2 {
+		font-size: 1.5rem;
+	}
+	.transaction{
+		width:400px;
+	}
 }
 
 @media only screen and (min-width: 992px){
@@ -207,6 +220,12 @@ min-height: 100vh;
 	.logs{
 		width: 500px;
 		font-size: 1.5rem;
+	}
+	.transaction > h2 {
+		font-size: 1.8rem;
+	}
+	.transaction{
+		width:500px;
 	}
 }
 
