@@ -32,10 +32,9 @@ function stopStream(){
 
 function screenShare(){
 	try{
-
-	!screen ? startCapture() : cameraStart();
-	document.getElementById('switchMode').innerHTML=!screen ? "Switch to Camera" : "Share Screen";
-	screen=!screen
+		!screen ? startCapture() : cameraStart();
+		document.getElementById('switchMode').innerHTML=!screen ? "Switch to Camera" : "Share Screen";
+		screen=!screen
 	}catch(err){
 		alert('Screen Capture is not supported by your device! ');
 	}	
@@ -58,10 +57,10 @@ async function startCapture(displayMediaOptions) {
 				socket.emit("stream",e.data);
 			}
 		})
-		.catch(function(error) {
-			alert("please make sure to allow camera permissions from your browser's settings");
-			console.error("Oops. Something is broken.", error);
-		});
+			.catch(function(error) {
+				alert("please make sure to allow camera permissions from your browser's settings");
+				console.error("Oops. Something is broken.", error);
+			});
 	} catch(err) {
 		console.error("Error: " + err);
 	}
@@ -96,12 +95,12 @@ function cameraStart() {
 		});
 }
 
- function copyFunction(a) {
+function copyFunction(a) {
 	var copyText = document.getElementsByClassName("val")[a];
 	copyText.select();
 	copyText.setSelectionRange(0, 99999); 
 	navigator.clipboard.writeText(copyText.value);
 
-	}
+}
 
 
