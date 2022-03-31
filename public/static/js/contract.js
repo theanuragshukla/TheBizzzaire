@@ -93,6 +93,7 @@ const sleep = (milliseconds) => {
 async function initiateTxn(amt, e) {
 
     e.innerHTML = "Initiating Txn...";
+	e.setAttribute("disabled",true);
     logs.innerHTML += `<h3>Initiating Transaction</h3>`;
     try {
         await connectWallet();
@@ -114,10 +115,13 @@ async function initiateTxn(amt, e) {
             let txnReceipt = null;
             let count = 1;
             logs.innerHTML += `<p>Waiting for transaction to be mined...</p><p>this may take a while, please keep calm and wait...</p>`;
+
+    e.innerHTML = "verifying Txn...";
             try {
                 while (txnReceipt == null) {
 
                     logs.innerHTML += `<p>Attempt ${count}</p>`;
+					scrollToBottom("logs");
                     count++;
                     txnReceipt = await web3.eth.getTransactionReceipt(transactonHash);
                     await sleep(expectedBlockTime)
@@ -125,6 +129,7 @@ async function initiateTxn(amt, e) {
             } catch (err) {
                 return txnFailed(err);
 
+    e.innerHTML = "RETRY";
                 logs.innerHTML += `<p>Transaction Failed due to unknown reasons. Please reInitiate the payment with higher gas fees.</p>`;
             }
 
@@ -135,6 +140,7 @@ async function initiateTxn(amt, e) {
             console.log('success');
 	            console.log(txnReceipt);
 
+    e.innerHTML = "Creating Stream...";
             var name = document.getElementById("name").value;
             sessionStorage.setItem('streamName', name);
             var dur = 0;
@@ -146,21 +152,22 @@ async function initiateTxn(amt, e) {
                 },
                 body: JSON.stringify({
                     data: {
-                        "name": name,
-                        "dur": dur,
-                        "rec": txnReceipt
+                        name: name,
+                        dur: dur,
+                        rec: txnReceipt
                     }
                 })
             })
-            .then(data => {
-                if (!data.ok) {
-                    throw new Error("HTTP status " + data.status);
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("HTTP status " + res.status);
                 }
-                return data.json()
+                return res.json()
             })
-            .then(data => {
-                console.log(data);
-                sessionStorage.setItem('streamData', JSON.stringify(data));
+            .then(res => {
+                console.log(res);
+    e.innerHTML = "Redirecting...";
+                sessionStorage.setItem('streamData', JSON.stringify(res));
                 location.href = "/show";
             })
             .catch(err => {
@@ -181,4 +188,9 @@ async function initiateTxn(amt, e) {
 
 const txnFailed = (error) => {
     console.log('failed');
+}
+
+const scrollToBottom = (id) => {
+    const element = document.getElementById(id);
+    element.scrollTop = element.scrollHeight;
 }

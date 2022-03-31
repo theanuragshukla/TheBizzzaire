@@ -35,7 +35,3 @@ function checkSpaces(str, exact) {
     return (exact ? len === str.length && len !== 0: len !== 0)
 }
 
-const scrollToBottom = (id) => {
-    const element = document.getElementById(id);
-    element.scrollTop = element.scrollHeight;
-}
