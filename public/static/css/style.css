@@ -234,9 +234,11 @@ background-size: cover;
 	}
 	.btn{
 		font-size: 1.1rem;
+		width: 130px;
+		height: 60px;
 	}
 	.icon{
-		font-size: 2rem;
+		font-size: 1.6rem;
 		margin-right: 4px;
 	}
 	.card1, .card2{
@@ -244,7 +246,8 @@ background-size: cover;
 		height: 300px;
 	}
 	#urlInp{
-		width: 300px;
+		width: 280px;
+		height:60px;
 	}
 	.watch{
 		flex-direction: column;
@@ -253,6 +256,18 @@ background-size: cover;
 	.btns{
 		flex-direction: column;
 		height: auto;
+	}
+	.btn:hover .icon{
+	
+		font-size: 2.5rem;
+		transform: translateX(-95%);
+		color: rgb(255, 255, 255);
+	}
+	.back{
+		font-size: 1.4rem;
+	}
+	.back ion-icon{
+		font-size: 2.2rem;
 	}
 }
 
@@ -287,6 +302,24 @@ background-size: cover;
 	}
 	.btn{
 		font-size: 1.1rem;
+		width: 150px;
+		height: 70px;
+	}
+	.btn:hover .icon{
+	
+		font-size: 3rem;
+		transform: translateX(-85%);
+		color: rgb(255, 255, 255);
+	}
+	.back{
+		font-size: 1.7rem;
+	}
+	.back ion-icon{
+		font-size: 2.7rem;
+	}
+	#urlInp{
+		width: 300px;
+		height:70px;
 	}
 }
 
@@ -355,6 +388,8 @@ background-size: cover;
 }
 .btn{
 	font-size: 1.4rem;
+	width: 170px;
+	height: 80px;
 }
 
 
@@ -364,6 +399,22 @@ background-size: cover;
 }
 .wlcmtxt{
 	width: 100%;
+}
+.btn:hover .icon{
+	
+	font-size: 4rem;
+	transform: translateX(-85%);
+	color: rgb(255, 255, 255);
+}
+.back{
+	font-size: 2rem;
+}
+.back ion-icon{
+	font-size: 3.5rem;
+}
+#urlInp{
+	width: 330px;
+	height:80px;
 }
 } 
 
