@@ -31,6 +31,7 @@
 	box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.1);
 	border-radius: 10px;
     border: 1px solid white;
+    background: #000;
 }
 .right{
     grid-area: right;
