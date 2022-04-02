@@ -2,7 +2,7 @@ var track = null;
 var localStream ='';
 const cameraView = document.querySelector("#camera--view");
 var constraints = { video: { facingMode: "user" }, audio: false };
-var  screen = false;
+var  screen = true;
 let socket;
 let key;
 window.onload=async function(){
@@ -21,7 +21,7 @@ window.onload=async function(){
 function startStream(){
 	destroyViews();
 	socket = io.connect("/",{ query: `streamKey=${key}` });
-	cameraStart();
+	startCapture();
 }
 
 function stopStream(){
@@ -41,7 +41,7 @@ function screenShare(){
 }
 
 async function startCapture(displayMediaOptions) {
-	if(localStream!==''){
+	if(localStream !== ''){
 		stopStream();
 	}
 	let captureStream = null;
