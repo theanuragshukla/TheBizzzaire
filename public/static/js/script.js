@@ -6,6 +6,7 @@ const inp = document.getElementById("urlInp");
 const card1 = document.querySelector(".card1");
 const card2 = document.querySelector(".card2");
 const back = document.querySelector(".back");
+const xplor = document.querySelector(".xplor");
 
 function create(){
 	location.href="/create";
@@ -45,3 +46,14 @@ window.onscroll = function(ev) {
 		card2.classList.add("animate__fadeInRight");
     }
 };
+
+function visible(){
+	xplor.style.display="block"
+	xplor.classList.add("animate__fadeInDown")
+}
+
+setTimeout(visible, 1500)
+
+function goDown(){
+	window.scrollTo(0, document.body.scrollHeight);
+}

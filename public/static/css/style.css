@@ -164,6 +164,16 @@ background-size: cover;
 	font-size: 4.5rem;
 }
 
+.xplor{
+	font-size: 4rem;
+	display: none;
+	color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	bottom: 20px;
+	left: 47%;
+	
+}
+
 .cardheading{
 	font-size: 3rem;
 	color: black;
@@ -425,23 +435,23 @@ background-size: cover;
 	height: 450px;
 }
 .wlcmtxt{
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
 #wlcm{
 	letter-spacing: 12px;
 	font-size: 5rem;
 }
 .heading{
-	font-size: 4rem;
-}
-.cardheading{
 	font-size: 3rem;
 }
+.cardheading{
+	font-size: 2.7rem;
+}
 .cardtxt{
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 }
 .btn{
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 }
 
 
