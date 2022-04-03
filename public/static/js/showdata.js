@@ -2,6 +2,17 @@ var track = null;
 var localStream ='';
 const cameraView = document.querySelector("#camera--view");
 var constraints = { video: { facingMode: "user" }, audio: false };
+const displayMediaOptions = {
+  video: {
+    cursor: "always"
+  },
+  audio: {
+    echoCancellation: true,
+    noiseSuppression: true,
+    sampleRate: 44100
+  }
+}
+
 var  screen = true;
 let socket;
 let key;
