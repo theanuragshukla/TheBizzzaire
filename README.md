@@ -12,7 +12,7 @@
 
 This is our Project for Submission in the Hackathon `ETHernals`.
 
-This is a decentralised App(dApp), which provides Users with the ability to create LiveStreams and also in-borowser Straming facilities.
+This is a decentralised App(dApp), which provides Users with the ability to create LiveStreams and also in-browser Straming facilities.
 
 Users can choose to stream from any other Streaming Software of their Choice or use our Builtin Streaming Service(beta) for in-browser streaming.
 
@@ -80,7 +80,7 @@ This Contract takes care of the Transactions happening at the clients end and en
 ```
 contractAddress: 0xca29077f2c687406bbab7dbaae283fa2d00f2773
 ```
-#### View Contract Info
+### View Contract Info
 ```
 https://ropsten.etherscan.io/address/0xCA29077F2C687406BbAB7dbaaE283FA2d00f2773
 ```
