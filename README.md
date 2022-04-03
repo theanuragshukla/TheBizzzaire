@@ -81,9 +81,9 @@ This Contract takes care of the Transactions happening at the clients end and en
 contractAddress: 0xca29077f2c687406bbab7dbaae283fa2d00f2773
 ```
 ### View Contract Info
-```
-https://ropsten.etherscan.io/address/0xCA29077F2C687406BbAB7dbaaE283FA2d00f2773
-```
+
+[`https://ropsten.etherscan.io/address/0xCA29077F2C687406BbAB7dbaaE283FA2d00f2773`](https://ropsten.etherscan.io/address/0xCA29077F2C687406BbAB7dbaaE283FA2d00f2773)
+
 
 # Where is this dApp deployed
 
