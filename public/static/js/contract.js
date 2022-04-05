@@ -185,7 +185,7 @@ async function initiateTxn(amt, e) {
 
     } catch (err) {
         logs.innerHTML += `<p>some error occoured...</p><p>please retry</p>`;
-		logs.innerHTML+=`<p>Please Check that  METAMASK is installed.</p>`;
+		logs.innerHTML+=`<p>Please make sure that  METAMASK is installed.</p>`;
 		scrollToBottom("logs");
         console.log(err);
         e.innerHTML = "RETRY"
