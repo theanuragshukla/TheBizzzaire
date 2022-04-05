@@ -56,9 +56,9 @@ async function connectWallet() {
     logs.innerHTML += `<p>Trying to connect Wallet...</p>`;
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
+    logs.innerHTML += `<p>Wallet Found</p><p>Please Connect Your Wallet by confirming the popup</p><p>Waiting for connection...</p>`;
     }
 
-    logs.innerHTML += `<p>Wallet Found</p><p>Please Connect Your Wallet by confirming the popup</p><p>Waiting for connection...</p>`;
 
     conn = await window.ethereum.enable();
 
@@ -104,6 +104,7 @@ async function initiateTxn(amt, e) {
         logs.innerHTML += `<p>Connected to contract Successfully...</p><p>Initiating Transaction...</p><p>Please Don't close the window until the process is finished...</p>`;
 
         logs.innerHTML += `<p>Firing up the Payment Method...</p><p>Please confirm the payment through your wallet...</p>`;
+		scrollToBottom("logs");
         contract.methods.pay().send({
             "from": ethaddress,
             "value": web3.utils.toWei(amt, "ether")
@@ -116,6 +117,7 @@ async function initiateTxn(amt, e) {
             let count = 1;
             logs.innerHTML += `<p>Waiting for transaction to be mined...</p><p>this may take a while, please keep calm and wait...</p>`;
 
+		scrollToBottom("logs");
     e.innerHTML = "verifying Txn...";
             try {
                 while (txnReceipt == null) {
@@ -131,10 +133,12 @@ async function initiateTxn(amt, e) {
 
     e.innerHTML = "RETRY";
                 logs.innerHTML += `<p>Transaction Failed due to unknown reasons. Please reInitiate the payment with higher gas fees.</p>`;
+		scrollToBottom("logs");
             }
 
             logs.innerHTML += `<p>Congratulations, Your transaction is mined Successfully.</p>
             `;
+		scrollToBottom("logs");
 
 
             console.log('success');
@@ -181,6 +185,8 @@ async function initiateTxn(amt, e) {
 
     } catch (err) {
         logs.innerHTML += `<p>some error occoured...</p><p>please retry</p>`;
+		logs.innerHTML+=`<p>Please Check that  METAMASK is installed.</p>`;
+		scrollToBottom("logs");
         console.log(err);
         e.innerHTML = "RETRY"
     }
